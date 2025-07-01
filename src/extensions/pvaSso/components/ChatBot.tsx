@@ -10,22 +10,35 @@ import { useRef } from "react";
 import { IChatbotProps } from "./IChatBotProps";
 import MSALWrapper from "./MSALWrapper";
 
+import styles from "./ChatBot.module.scss"
+import { ContextualMenu } from "office-ui-fabric-react";
+
 export const PVAChatbotDialog: React.FunctionComponent<IChatbotProps> = (props) => {
     
     // Dialog properties and states
     const dialogContentProps = {
-        type: DialogType.normal,
-        title: props.botName,
+        type: DialogType.close,
+        title: "Ask Kete",
         closeButtonAriaLabel: 'Close'
+    };
+
+    const dragOptions = {
+        moveMenuItemText: 'Move',
+        closeMenuItemText: 'Close',
+        menu: ContextualMenu,
     };
     
     const [hideDialog, { toggle: toggleHideDialog }] = useBoolean(true);
     const labelId: string = useId('dialogLabel');
     const subTextId: string = useId('subTextLabel');
     
+    
     const modalProps = React.useMemo(
         () => ({
             isBlocking: false,
+            isDarkOverlay: false,
+            isModeless: true,
+            dragOptions: dragOptions
         }),
         [labelId, subTextId],
     );
@@ -172,7 +185,7 @@ export const PVAChatbotDialog: React.FunctionComponent<IChatbotProps> = (props) 
             // Render webchat
             if (token && directline) {
                 if (webChatRef.current && loadingSpinnerRef.current) {
-                    webChatRef.current.style.minHeight = '50vh';
+                    webChatRef.current.style.minHeight = '30vh';
                     loadingSpinnerRef.current.style.display = 'none';
                     ReactWebChat.renderWebChat(
                         {
@@ -192,9 +205,9 @@ export const PVAChatbotDialog: React.FunctionComponent<IChatbotProps> = (props) 
 
     return (
         <>
-            <DefaultButton secondaryText={props.buttonLabel} text={props.buttonLabel} onClick={toggleHideDialog}/>
+            <DefaultButton onClick={toggleHideDialog} className={styles.button} iconProps={{iconName: "CannedChat", styles:{root:{fontSize: "20px", color: "white"}}}}/>
             <Dialog styles={{
-                main: { selectors: { ['@media (min-width: 480px)']: { width: 450, minWidth: 450, maxWidth: '1000px' } } }
+                main: { selectors: { ['@media (min-width: 480px)']: { width: 350, minWidth: 350, maxWidth: '1000px', position: "absolute", bottom: "120px", right: "20px" } } }
             }} hidden={hideDialog} onDismiss={toggleHideDialog} onLayerDidMount={handleLayerDidMount} dialogContentProps={dialogContentProps} modalProps={modalProps}>
                 <div id="chatContainer" style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
                     <div ref={webChatRef} role="main" style={{ width: "100%", height: "0rem" }}></div>
@@ -212,10 +225,10 @@ export default class Chatbot extends React.Component<IChatbotProps> {
     }
     public render(): JSX.Element {
         return (
-            <div style={{ display: "flex", flexDirection: "column", alignItems: "center", paddingBottom: "1rem" }}>
+            <div className={styles.container}>
                 <PVAChatbotDialog
                 {...this.props}/>
             </div>
         );
     }
-}  
+} 

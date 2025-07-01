@@ -1,0 +1,20 @@
+.container {
+  position: absolute;
+  bottom: 50px;
+  right: 50px;
+
+  z-index: 100;
+
+  .button {
+    background-color: rgb(21, 21, 132);
+    border-color: rgb(13, 13, 74);
+    height: 58px;
+    min-width: 30px;
+    border-radius: 50%;
+  }
+
+  .button:hover {
+    background-color: rgb(17, 17, 103);
+    border-color: rgb(7, 7, 39);
+  }
+}

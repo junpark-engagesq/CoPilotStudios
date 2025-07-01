@@ -4,7 +4,7 @@
   "https": true,
   "serveConfigurations": {
     "default": {
-      "pageUrl": "YOUR_SHAREPOINT_SITE",
+      "pageUrl": "https://qnzl.sharepoint.com/sites/SharePointCopilotBotHomepage/_layouts/workbench.aspx",
       "customActions": {
         "bbcf8287-ea2d-4bb6-868f-19b9cf4b0812": {
           "location": "ClientSideExtension.ApplicationCustomizer",
@@ -19,7 +19,7 @@
       }
     },
     "pvaSso": {
-      "pageUrl": "YOUR_SHAREPOINT_SITE",
+      "pageUrl": "https://qnzl.sharepoint.com/sites/SharePointCopilotBotHomepage/_layouts/workbench.aspx",
       "customActions": {
         "bbcf8287-ea2d-4bb6-868f-19b9cf4b0812": {
           "location": "ClientSideExtension.ApplicationCustomizer",
