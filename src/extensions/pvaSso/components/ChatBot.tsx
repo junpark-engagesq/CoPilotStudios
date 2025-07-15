@@ -18,7 +18,7 @@ export const PVAChatbotDialog: React.FunctionComponent<IChatbotProps> = (props) 
     // Dialog properties and states
     const dialogContentProps = {
         type: DialogType.close,
-        title: "Ask Kete",
+        title: "DocuHub Assistant",
         closeButtonAriaLabel: 'Close'
     };
 

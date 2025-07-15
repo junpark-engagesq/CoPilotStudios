@@ -4,7 +4,7 @@
   "https": true,
   "serveConfigurations": {
     "default": {
-      "pageUrl": "https://qnzl.sharepoint.com/sites/SharePointCopilotBotHomepage/_layouts/workbench.aspx",
+      "pageUrl": "https://powerconewzealand.sharepoint.com/teams/CoPilotTrial/_layouts/workbench.aspx",
       "customActions": {
         "bbcf8287-ea2d-4bb6-868f-19b9cf4b0812": {
           "location": "ClientSideExtension.ApplicationCustomizer",
@@ -19,7 +19,7 @@
       }
     },
     "pvaSso": {
-      "pageUrl": "https://qnzl.sharepoint.com/sites/SharePointCopilotBotHomepage/_layouts/workbench.aspx",
+      "pageUrl": "https://powerconewzealand.sharepoint.com/teams/CoPilotTrial/_layouts/workbench.aspx",
       "customActions": {
         "bbcf8287-ea2d-4bb6-868f-19b9cf4b0812": {
           "location": "ClientSideExtension.ApplicationCustomizer",
